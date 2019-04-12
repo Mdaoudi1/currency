@@ -14,21 +14,22 @@ export default class App extends Component {
         }
     }
 
-    componentDidMount(){
-        return
-        fetch('http://www.apilayer.net/api/live?access_key=98abf75cf880a807a45432cb6c162c51')
-        .then((response) => response.json())
-        .then((responseJson) => {
-            this.setState({
-                isLoading: false,
-                dataSource: responseJson.quotes,
+    componentDidMount (){
+        return fetch('http://www.apilayer.net/api/live?access_key=98abf75cf880a807a45432cb6c162c51')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: responseJson.quotes,
+                })
             })
-        })
-
-        .catch((error) => {
-            console.log(error)
-        });
-}
+ 
+            .catch((error) => {
+                console.log(error)
+            });
+    }
+ 
+ 
 
 
     _handleTextChange = bal => {
@@ -89,6 +90,7 @@ export default class App extends Component {
                 </View>
             )
         } else{
+            return (
             <View style={styles.container}>
                 <TextInput
                     value={this.state.bal}
@@ -113,7 +115,7 @@ export default class App extends Component {
                         onPress = {this.usdToEuro}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Euro
+                            USD to EUR
                         </Text>
                     </TouchableHighlight>
                     <TouchableHighlight
@@ -121,7 +123,7 @@ export default class App extends Component {
                         onPress = {this.usdToSwiss}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Franc
+                            USD to CHF
                         </Text>
                     </TouchableHighlight>
                 </View>
@@ -131,7 +133,7 @@ export default class App extends Component {
                         onPress = {this.usdToPound}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Pound
+                            USD to GBP
                         </Text>
                     </TouchableHighlight>
                     <TouchableHighlight
@@ -139,7 +141,7 @@ export default class App extends Component {
                         onPress = {this.usdToYen}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Yen
+                            USD to YEN
                         </Text>
                     </TouchableHighlight>
                 </View>
@@ -149,7 +151,7 @@ export default class App extends Component {
                         onPress = {this.usdToRupee}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Rupee
+                            USD to INR
                         </Text>
                     </TouchableHighlight>
                     <TouchableHighlight
@@ -157,7 +159,7 @@ export default class App extends Component {
                         onPress = {this.usdToYuan}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Yuan
+                            USD to CNY
                         </Text>
                     </TouchableHighlight>
                 </View>
@@ -167,7 +169,7 @@ export default class App extends Component {
                         onPress = {this.usdToAus}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Aussie
+                            USD to AUD
                         </Text>
                     </TouchableHighlight>
                     <TouchableHighlight
@@ -175,12 +177,12 @@ export default class App extends Component {
                         onPress = {this.usdToCan}
                     >
                         <Text style={styles.buttonText}>
-                            USD to Can
+                            USD to CAD
                         </Text>
                     </TouchableHighlight>
                 </View>
                 <Text style={styles.paragraph}>
-                    My New Balance:
+                    My New Balance
                 </Text>
 
                 <Text style={styles.yikes}>
@@ -188,6 +190,7 @@ export default class App extends Component {
                 </Text>
                 
             </View>
+            );    
    }
 }
 }
@@ -209,22 +212,21 @@ const styles = StyleSheet.create({
         color: 'red',
         fontSize: 30,
         textAlign: 'center',
-        fontWeight: 'bold',
+        
         textAlign: 'justify',
     },
     paragraph: {
-        fontWeight: 'bold',
+        
     },
     buttonText: {
-        fontWeight: 'bold',
+        
     },
     button: {
         marginBottom: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
         height: 40,
-        width: 100,
+        width: 150,
         borderColor: 'blue',
         borderWidth: 3,
     }

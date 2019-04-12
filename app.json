@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "currency",
+    "name": "Currency",
     "slug": "currency",
     "privacy": "public",
     "sdkVersion": "32.0.0",
@@ -24,6 +24,12 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "edu.essexstem.currency",
+      "versionCode": 1,
+      "permissions": [],
+      "config":{}
     }
   }
 }
